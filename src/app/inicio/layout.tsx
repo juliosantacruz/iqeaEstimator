@@ -23,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <Navbar /> */}
-        <AsideMenu />
+        <Navbar />
+        {/* <AsideMenu /> */}
         {children}
         {/* <Footer /> */}
       </body>

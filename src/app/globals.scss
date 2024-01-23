@@ -44,10 +44,11 @@ body {
 }
 body{
   display: flex;
+  flex-direction: column;
 
 }
 main{
-  margin: var(--margin-top) 0;
+  // margin: var(--margin-top) 0;
   padding-left: 40px;
 }
 
