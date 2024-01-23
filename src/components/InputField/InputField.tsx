@@ -1,6 +1,6 @@
 import React from "react";
-import './InputField.scss'
-import {useForm} from 'react-hook-form'
+import "./InputField.scss";
+import { useForm } from "react-hook-form";
 
 type InputProps = {
   className?: string;
@@ -8,9 +8,9 @@ type InputProps = {
   label: string;
   type: string;
   required?: boolean;
-  value?: string|number;
-  inputChange?:any;
-  register:any
+
+  inputChange?: any;
+  register: any;
 };
 
 export default function InputField({
@@ -19,29 +19,31 @@ export default function InputField({
   label,
   type,
   required,
-  value,
+
   inputChange,
-  register
+  register,
 }: InputProps) {
 
-  const {getValues }=useForm()
 
-  // const value = getValues(name)
 
-  console.log(value)
   return (
-    <div className='InputField'>
-      <label htmlFor={`${name}-input`} className={`label ${value ? "has-value" : ""}`}>
+    <div className="InputField">
+      <label
+        htmlFor={`${name}-input`}
+        className={`label ${false ? "has-value" : ""}`}
+      >
         {label}
       </label>
       <input
         id={`${name}-input`}
         type={type}
         className="input"
-
         required={required}
-        {... register(name)}
+        {...register(name, {
+          required: required,
+
+        })}
       />
     </div>
   );
-};
+}
