@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.scss";
+// import "./globals.scss";
 import Navbar from "@/Layout/Navbar/Navbar";
 import AsideMenu from "@/Layout/AsideMenu/AsideMenu";
 import Footer from "@/Layout/Footer/Footer";
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* <Navbar /> */}
-        {/* <AsideMenu /> */}
+        <AsideMenu />
         {children}
         {/* <Footer /> */}
       </body>

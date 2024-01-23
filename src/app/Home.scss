@@ -1,0 +1,39 @@
+.signInPage{
+
+    // padding: 0 var(--general-padding);
+    color: var(--text-primary-color);
+    background-color: var(--background-signIn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .signInImg{
+
+      width: 50%;
+
+      img{
+        width: 100%;
+        height: calc( 100vh );
+        object-fit: cover;
+      }
+    }
+    .signInData{
+      width: 50%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .LogInHeader{
+        // .formTitle{
+        //   margin: 10px 0;
+        // }
+
+        img{
+          margin: 40px 0;
+        }
+      }
+
+    }
+
+  }

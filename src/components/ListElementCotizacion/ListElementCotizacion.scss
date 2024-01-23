@@ -1,0 +1,54 @@
+.listElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid rgb(83, 83, 83);
+  // box-shadow: var(--shadow-box);
+  padding: 10px;
+  .listContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .listHeader {
+      display: flex;
+    }
+
+    .listFooter p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      display: flex;
+      gap: 15px;
+      li{
+        padding: 5px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .listButton{
+    display: flex;
+    gap: 10px;
+    button{
+      min-width: 60px;
+      padding: 0 10px;
+    }
+
+    button:active{
+      transform: translateY(3px);
+    }
+    .delete{
+      background-color: rgb(180, 0, 0);
+
+    }
+    .details{
+      background-color: rgb(83, 0, 160);
+    }
+  }
+}

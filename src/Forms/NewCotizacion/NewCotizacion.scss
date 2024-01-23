@@ -1,0 +1,30 @@
+.cotizacionForm{
+  z-index: 100;
+
+  background-color: black;
+  width: 100%;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 40px;
+
+  .formTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    margin: 0 0 20px 0;
+    button{
+      min-width: 30px;
+
+    }
+  }
+}
+fieldset{
+  border: none;
+}
+
+// form{
+//   display: flex;
+//   flex-wrap: wrap;
+// }
