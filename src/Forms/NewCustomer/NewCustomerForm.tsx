@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import "./NewCustomerForm.scss";
-import InputComponent from "@/components/InputComponent";
+// import InputComponent from "@/components/InputComponent";
 import { useRouter } from "next/navigation";
 
 export type AddressType = {
@@ -144,7 +144,7 @@ export default function NewCustomerForm({ token }: any) {
       className="signInForm"
       onSubmit={(event) => handleSubmit(event)}
     >
-      <fieldset title="usuario">
+      {/* <fieldset title="usuario">
         <h4>Informacion de Contacto</h4>
 
         <div className="formRow">
@@ -241,7 +241,7 @@ export default function NewCustomerForm({ token }: any) {
             inputChange={(event: any) => handleAddressChange(event)}
           />
         </div>
-      </fieldset>
+      </fieldset> */}
 
       <div className="formBtn">
         <button type="submit">Enviar</button>

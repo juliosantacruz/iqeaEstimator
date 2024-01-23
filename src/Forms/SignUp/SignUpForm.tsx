@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { FormEvent, useState } from "react";
 import "./SignUpForms.scss";
-import InputComponent from "@/components/InputComponent";
+// import InputComponent from "@/components/InputComponent";
 import { signIn } from "next-auth/react";
 
 export type SignInForm = {
@@ -110,7 +110,7 @@ export default function SignInForm({
       className="signInForm"
       onSubmit={(event) => handleSubmit(event)}
     >
-      <fieldset title="useData">
+      {/* <fieldset title="useData">
         <div className="formRow">
           <InputComponent
             name="username"
@@ -147,7 +147,7 @@ export default function SignInForm({
             inputChange={(event: any) => handleChange(event)}
           />
         </div>
-      </fieldset>
+      </fieldset> */}
       {error ? <h4>{(error as any).message}</h4> : null}
       <div className="forgotPassword">
         <Link href={"#"}>Olvidaste tu contrasenia..?</Link>

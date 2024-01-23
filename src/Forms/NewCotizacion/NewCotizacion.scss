@@ -16,14 +16,29 @@
     margin: 0 0 20px 0;
     button{
       min-width: 30px;
+      border: none;
+      background-color: #00000000;
+      font-size: 20px;
 
+    }
+  }
+  form{
+    .subtitle{
+      margin: 0 0 30px 0 ;
     }
   }
 }
 fieldset{
   border: none;
 }
+.btnGroup{
+  display: flex;
+  gap: 20px;
 
+  button{
+    padding: 5px 15px;
+  }
+}
 // form{
 //   display: flex;
 //   flex-wrap: wrap;
