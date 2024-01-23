@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InputField.scss";
 import { useForm } from "react-hook-form";
 
@@ -24,13 +24,14 @@ export default function InputField({
   register,
 }: InputProps) {
 
+  const [hasValue, setHasValue]= useState(false)
 
 
   return (
     <div className="InputField">
       <label
         htmlFor={`${name}-input`}
-        className={`label ${false ? "has-value" : ""}`}
+        className={`label ${hasValue ? "has-value" : ""}`}
       >
         {label}
       </label>
@@ -40,8 +41,13 @@ export default function InputField({
         className="input"
         required={required}
         {...register(name, {
-          required: required,
-
+          validate:(value:any)=>{
+            if(value){
+              setHasValue(true)
+            }else{
+              setHasValue(false)
+            }
+          }
         })}
       />
     </div>
