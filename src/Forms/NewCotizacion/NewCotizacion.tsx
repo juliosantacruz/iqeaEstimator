@@ -19,9 +19,9 @@ export default function NewCotizacion(props: any) {
 
   const index = [
     "Registro de Obra",
-    "Sistemas de Agua Potable",
-    "Sistemas de Agua Residual",
-    "Sistema de Reuso",
+    "Sistemas de Agua / PTA",
+    "Sistemas de Agua Residual / PTAR",
+    "Sistemas de Reuso / PTAR",
   ];
   const lastPage = index.length - 1;
   const [progress, setProgress] = useState((page / lastPage) * 100);
@@ -47,7 +47,7 @@ export default function NewCotizacion(props: any) {
   return (
     <div className="cotizacionForm">
       <div className="formTitle">
-        <h2>Nueva Cotizacion</h2>
+        <h2>Estimacion de Proyecto</h2>
         <button onClick={() => modal.setViewForm(false)}>x</button>
       </div>
       <form onSubmit={leSubmit}>

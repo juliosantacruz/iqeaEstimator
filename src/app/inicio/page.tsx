@@ -18,37 +18,34 @@ const dummieData = [
   },
   {
     id: 2,
-    title: "PTAR 16 Tilco",
+    title: "PTAR 16 Cancun",
     location: 'Acapulco',
     scope: [
       { id:1,system:'Water', type: "Filtracion", flow: 15, unit: "m3/dia" },
       { id:2,system:'Water', type: "Suavizadores", flow: 15, unit: "m3/dia" },
       { id:3,system:'Water', type: "Osmosis Inversa", flow: 15, unit: "m3/dia" },
-      { id:4,system:'WasteWater', type: "PreTratamiento", flow: 15, unit: "m3/dia" },
     ],
     start_date:'20/10/2024'
   },
   {
     id: 3,
-    title: "PTAR 16 Tilco",
+    title: "PTAR 6 Medtronic",
     location: 'Acapulco',
     scope: [
-      { id:1,system:'Water', type: "Filtracion", flow: 15, unit: "m3/dia" },
-      { id:2,system:'Water', type: "Suavizadores", flow: 15, unit: "m3/dia" },
-      { id:3,system:'Water', type: "Osmosis Inversa", flow: 15, unit: "m3/dia" },
+
       { id:4,system:'WasteWater', type: "PreTratamiento", flow: 15, unit: "m3/dia" },
+      { id:5,system:'WasteWater', type: "mmbr", flow: 15, unit: "m3/dia" },
     ],
     start_date:'20/10/2024'
   },
   {
     id: 4,
-    title: "PTAR 16 Tilco",
+    title: "PTAR 16 Ensenada",
     location: 'Acapulco',
     scope: [
-      { id:1,system:'Water', type: "Filtracion", flow: 15, unit: "m3/dia" },
-      { id:2,system:'Water', type: "Suavizadores", flow: 15, unit: "m3/dia" },
-      { id:3,system:'Water', type: "Osmosis Inversa", flow: 15, unit: "m3/dia" },
-      { id:4,system:'WasteWater', type: "PreTratamiento", flow: 15, unit: "m3/dia" },
+
+      { id:4,system:'Other', type: "Ultrafiltracion", flow: 15, unit: "m3/dia" },
+      { id:5,system:'Other', type: "Osmosis Inversa", flow: 15, unit: "m3/dia" },
     ],
     start_date:'20/10/2024'
   },
