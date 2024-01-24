@@ -7,7 +7,7 @@ header {
   nav {
     display: flex;
     flex-direction: row;
-    // align-items: center;
+    align-items: center;
     justify-content: space-between;
 
     height: 100%;
@@ -41,9 +41,11 @@ header {
     }
 
     .dev-logo {
-      width: 60px;
+      margin-right: 20px;
+
+      width: 40px;
       img {
-        width: auto;
+        width: 100%;
         height: 100%;
       }
     }

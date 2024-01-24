@@ -11,7 +11,6 @@ export default function NewCotizacion(props: any) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, dirtyFields },
 
   } = useForm();
 
