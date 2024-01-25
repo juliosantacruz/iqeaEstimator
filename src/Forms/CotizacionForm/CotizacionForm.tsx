@@ -104,7 +104,7 @@ export default function CotizacionForm(props: any) {
     addCotizacion(cotizacionData);
     console.log(cotizacionData);
 
-    // modal.setViewForm(false);
+    modal.setViewForm(false);
   });
 
   const handleNext = () => {};
