@@ -4,82 +4,95 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./CotizacionForm.scss";
 import InputFieldUnit from "@/components/InputFieldUnit/InputFieldUnit";
-import { priceList} from "@/mocks/waterPrices";
+import { priceList } from "@/mocks/waterPrices";
 import { PriceValue } from "@/Types/ProjectData";
-import {Cotizacion, useCotizacionStore}from '@/store/cotizacionStore'
+import { Cotizacion, useCotizacionStore } from "@/store/cotizacionStore";
 import { IDFromName } from "@/utils/ID_Generator";
 
 export default function CotizacionForm(props: any) {
-  const {addCotizacion}= useCotizacionStore()
+  const { addCotizacion } = useCotizacionStore();
   const { modal } = props;
 
   const { register, handleSubmit } = useForm();
 
+  const setPrice = (flow: number, arrPrice: PriceValue[]) => {
+    const value = Math.ceil(flow);
+    const priceValue = arrPrice.find((element) => element.flow === value);
 
-  const setPrice =(flow:number, arrPrice:PriceValue[])=>{
-    const value = Math.ceil(flow)
-    const priceValue = arrPrice.find((element)=>element.flow ===value)
+    return priceValue;
+  };
+  console.log(priceList);
+  const setCotizacion = (data: any) => {
+    const waterSystems = ["filtracion", "suavisador", "osmosis"];
+    const wasteWaterSystems = [
+      "pretratamiento",
+      "lodosActivados",
+      "bioFiltracion",
+      "mbbr",
+    ];
+    const reusoSystems = ["osmosisReuso", "ultrafiltracion"];
 
-    return(priceValue)
-  }
-console.log(priceList)
-  const setCotizacion = (data:any) =>{
-    const waterSystems =[ 'filtracion', 'suavisador','osmosis']
-    const wasteWaterSystems =['pretratamiento', 'lodosActivados','bioFiltracion','mbbr']
-    const reusoSystems = ['osmosisReuso','ultrafiltracion']
+    const projectData = {
+      id: IDFromName(data.name),
+      name: data.name,
+      location: data.location,
+      date: data.date,
+    };
 
-    const projectData ={
-      id:IDFromName(data.name),
-      name:data.name,
-      location:data.location,
-      date:data.date
-    }
-
-    const waterCotizacion = waterSystems.map((system)=>{
-      if(data[system]){
-        const priceData = setPrice(data[system], priceList[system])
-        const systemData:PriceValue = {
-          id:system,
-          system:system,
-          ...priceData
+    const waterCotizacion = waterSystems
+      .map((system) => {
+        if (data[system]) {
+          const priceData = setPrice(data[system], priceList[system]);
+          const systemData: PriceValue = {
+            id: system,
+            system: system,
+            ...priceData,
+          };
+          return systemData;
         }
-        return systemData
-      }
-    }).filter((element)=> element !== undefined)
+      })
+      .filter((element) => element !== undefined);
 
-
-
-    const wasteWaterCotizacion = wasteWaterSystems.map((system)=>{
-      if(data[system]){
-        const priceData = setPrice(data[system], priceList[system])
-        const systemData = {
-          id:system,
-          system:system,
-          ...priceData
+    const wasteWaterCotizacion = wasteWaterSystems
+      .map((system) => {
+        if (data[system]) {
+          const priceData = setPrice(data[system], priceList[system]);
+          const systemData = {
+            id: system,
+            system: system,
+            ...priceData,
+          };
+          return systemData;
         }
-        return systemData
-      }
-    }).filter((element)=> element !== undefined)
+      })
+      .filter((element) => element !== undefined);
 
+    const reusoCotizacion = reusoSystems
+      .map((system) => {
+        if (data[system]) {
+          console.log('lol 1 ',data[system]);
+          const priceData = setPrice(data[system], priceList[system]);
+          console.log(priceData);
 
+          const systemData = {
+            id: system,
+            system: system,
+            ...priceData,
+          };
+          console.log(systemData);
 
-    const reusoCotizacion = reusoSystems.map((system)=>{
-      if(data[system]){
-        const priceData = setPrice(data[system], priceList[system])
-        const systemData = {
-          id:system,
-
-          system:system,
-          ...priceData
+          return systemData;
         }
-        return systemData
-      }
-    }).filter((element)=> element !== undefined)
+      })
+      .filter((element) => element !== undefined);
 
-    return{projectData,waterCotizacion, wasteWaterCotizacion, reusoCotizacion}
-
-  }
-
+    return {
+      projectData,
+      waterCotizacion,
+      wasteWaterCotizacion,
+      reusoCotizacion,
+    };
+  };
 
   const leSubmit = handleSubmit((data: any) => {
     // console.log(setPrice(data.filtracion, filtracionPrice));
@@ -87,19 +100,16 @@ console.log(priceList)
     // const cotizacion = data.filtracion * (price as PriceValue).price
     // console.log(priceList);
 
+    const cotizacionData: any = setCotizacion(data);
+    addCotizacion(cotizacionData);
+    console.log(cotizacionData);
 
-    const cotizacionData:any = setCotizacion(data)
-    addCotizacion(cotizacionData)
-    console.log(cotizacionData)
-
-
-    modal.setViewForm(false);
+    // modal.setViewForm(false);
   });
 
   const handleNext = () => {};
 
   const handlePrev = () => {};
-
 
   return (
     <div className="cotizacionForm">
@@ -151,7 +161,9 @@ console.log(priceList)
 
         <details>
           <summary>Sistemas de Agua / PTA</summary>
-          <p>Procesos de agua potable para uso humano, riego, limpieza e higiene</p>
+          <p>
+            Procesos de agua potable para uso humano, riego, limpieza e higiene
+          </p>
           <fieldset className="ProjectData">
             <InputFieldUnit
               isRequired={true}
@@ -228,8 +240,6 @@ console.log(priceList)
         </details>
 
         <div className="btnGroup">
-
-
           <button>Enviar</button>
         </div>
       </form>
