@@ -4,6 +4,8 @@ import bgImage from "@/assets/contactoImg.jpg";
 import logoImage from "@/assets/iqea_logo.png";
 import LogInForm from "@/Forms/LogIn/LogInForm";
 
+
+
 export default function Home() {
   return (
     <main className=''>
@@ -21,8 +23,10 @@ export default function Home() {
 
         </div>
 
+        <div className="form">
 
         <LogInForm/>
+        </div>
       </div>
     </section>
     </main>

@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LogInForm.scss";
 import InputField from "@/components/InputField/InputField";
 // import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { UserType } from "@/store/userStore";
+import { useUserStore } from "@/store/userStore";
 
 export type LogInForm = {
   username: string;
@@ -19,53 +21,61 @@ const formTest = {
   password: "",
 };
 
+const users = [
+  {
+    username: "arturo",
+    password: "iqea2024",
+    name: "arturo chavez",
+    email: "arturo@iqea.mx",
+    company: "IQEA",
+    jwtToken: "jwtTOken_de_prueba",
+    isAdmin: true,
+  },
+  {
+    username: "julio",
+    password: "iqea2024",
+    name: "julio santacruz",
+    email: "cto@iqea.mx",
+    company: "IQEA",
+    jwtToken: "jwtTOken_de_prueba",
+    isAdmin: true,
+  },
+]
+
 export default function LogInForm() {
   const [formData, setFormData] = useState<LogInForm>(formTest);
   const router = useRouter();
   const { register, handleSubmit } = useForm();
+  const { setLogin, setIsAuth,isAuth } = useUserStore();
 
-  // const handleSubmit = async (event: any) => {
-  //   event.preventDefault();
 
-  // try {
-  //   const res = await signIn("credentials", {
-  //     identifier: formData.username,
-  //     password: formData.password,
-  //     redirect: false,
-  //   });
-  //   // console.log(res)
+  useEffect(()=>{
+    if(isAuth){
+      router.push("/");
+    }
+  },[])
 
-  //   if ((res as any).ok) {
+  const leSubmit = handleSubmit((data: any) => {
+    const username = data.username;
+    const password = data.password;
+    // console.log(username, password);
 
-  //       router.push("/perfil");
-  //     }
-  // } catch (error) {
-  //   console.error("Error during authentication:", error);
-  //   // Puedes mostrar un mensaje de error al usuario aquí
-  // }
+    if (
+      users.find((user) => user.username === username) &&
+      users.find((user) => user.password === password)
+    ) {
+      const loginUser = users.find((user) => user.username === username)
+      console.log(loginUser)
+      setLogin(loginUser as UserType);
+      setIsAuth(true)
+      router.push("/");
 
-  // redireccion temporal
-  //  router.push("/inicio");
+    }
 
-  // };
-
-  const handleChange = (event: any) => {
-    const dato = event?.target.value;
-    setFormData({
-      ...formData,
-      [event.target.name]: dato,
-    });
-  };
+  });
 
   return (
-    <form
-      action=""
-      className="signInForm"
-      onSubmit={handleSubmit((data) => {
-        console.log(data);
-        router.push("/inicio");
-      })}
-    >
+    <form action="" className="signInForm" onSubmit={leSubmit}>
       <div className="formRow">
         <InputField
           name="username"
@@ -84,7 +94,7 @@ export default function LogInForm() {
       </div>
 
       <div className="forgotPassword">
-        <Link href={"#"}>Olvidaste tu contrasenia..?</Link>
+        {/* <Link href={"#"}>Olvidaste tu contrasenia..?</Link> */}
       </div>
       <div className="formBtn">
         <button type="submit">Continuar</button>

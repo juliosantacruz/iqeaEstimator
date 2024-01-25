@@ -1,5 +1,9 @@
 // MOBILE FIRST
+nav{
+  display: none !important;
+}
 .signInPage {
+  overflow: hidden;
   color: var(--text-primary-color);
   background-color: var(--background-signIn);
   display: flex;
@@ -64,6 +68,7 @@
       position: initial;
     }
   }
+
 }
 // // padding: 0 var(--general-padding);
 

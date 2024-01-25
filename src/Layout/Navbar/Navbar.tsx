@@ -4,6 +4,7 @@ import "./Navbar.scss";
 import logo from "@/assets/iqea_logo.png";
 import UserImg from "@/assets/bx-user-circle.svg";
 import Link from "next/link";
+import LogOutBtn from "@/components/LogOutBtn/LogOutBtn";
 
 export default function Navbar() {
 
@@ -12,7 +13,7 @@ export default function Navbar() {
     <header>
       <nav>
         <div className="logo">
-        <a href={isDev?'/inicio':'https://iqea-page.vercel.app/'}>
+        <a href={isDev?'/':'https://iqea-page.vercel.app/'}>
           <img src={logo.src} alt="logo" />
         </a>
         </div>
@@ -21,7 +22,7 @@ export default function Navbar() {
           {/* <a href={!isDev?'/':'https://iqea-page.vercel.app/'}>
             <li>IQEA</li>
             </a> */}
-            {/* <li>Inicio</li> */}
+            <li><LogOutBtn/></li>
             <li>
               <div className="dev-logo">
                 <img src={UserImg.src} alt="logoDev" />
