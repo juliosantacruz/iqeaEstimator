@@ -1,30 +1,26 @@
-import './Home.scss'
-import Image from "next/image";
-import bgImage from "@/assets/contactoImg.jpg";
-import logoImage from "@/assets/iqea_logo.png";
-import LogInForm from "@/Forms/LogIn/LogInForm";
+import React, { Suspense } from "react";
+import "./Home.scss";
+import NewElementBtn from "@/components/NewElementBtn/NewElementBtn";
+import ListElementCotizacion from "@/components/ListElementCotizacion/ListElementCotizacion";
+import Loading from "./loading";
 
-export default function Home() {
+const dummieData = [
+
+];
+
+export default function page() {
   return (
-    <main className=''>
-      <section className="signInPage">
-      <div className="signInImg">
-        <Image src={bgImage} alt="background image" />
+    <main className="inicioPage">
+      <div className="titlePage">
+      <h1>Mis Cotizaciones</h1>
       </div>
 
-      <div className="signInData">
-        <div className="LogInHeader">
-          <div className="formTitle">
-            <h2>Iniciar Sesion</h2>
-          </div>{" "}
-          <Image src={logoImage} alt="logo" width={300}/>
-
-        </div>
+      <div className="cotizacionesList">
 
 
-        <LogInForm/>
       </div>
-    </section>
+      <NewElementBtn />
+
     </main>
-  )
+  );
 }

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./NewElementBtn.scss";
 import NewCotizacion from "@/Forms/NewCotizacion/NewCotizacion";
+import CotizacionForm from "@/Forms/CotizacionForm/CotizacionForm";
 
 export default function NewElementBtn() {
   const [viewForm, setViewForm] = useState(false);
@@ -17,7 +18,7 @@ export default function NewElementBtn() {
 
       {viewForm && (
         <div className="formContainer">
-          <NewCotizacion modal={{ viewForm, setViewForm }} />
+          <CotizacionForm modal={{ viewForm, setViewForm }} />
         </div>
       )}
     </>
