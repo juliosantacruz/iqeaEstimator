@@ -80,3 +80,24 @@ button:active{
 
 
 
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 6px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para el "track" de la barra de desplazamiento (la parte gris) */
+::-webkit-scrollbar-track {
+  background-color: #000000; /* Color de fondo del track */
+}
+
+/* Estilo para el "thumb" de la barra de desplazamiento (la parte desplazable) */
+::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3; /* Color del thumb */
+  border-radius: 8px; /* Bordes redondeados del thumb */
+  width: 4px;
+}
+
+/* Cambia el color del thumb al pasar el ratón sobre él */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

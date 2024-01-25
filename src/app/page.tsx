@@ -1,12 +1,13 @@
 import React, { Suspense } from "react";
 import "./Home.scss";
 import NewElementBtn from "@/components/NewElementBtn/NewElementBtn";
-import ListElementCotizacion from "@/components/ListElementCotizacion/ListElementCotizacion";
+import ListElementCotizacion from "@/components/CardCotizacionElement/CardCotizacionElement";
 import Loading from "./loading";
+import ListElementsCotizacion from "@/components/ListElementsCotizacion/ListElementsCotizacion";
 
-const dummieData = [
+  const dummieData = [
 
-];
+  ];
 
 export default function page() {
   return (
@@ -16,7 +17,7 @@ export default function page() {
       </div>
 
       <div className="cotizacionesList">
-
+        <ListElementsCotizacion/>
 
       </div>
       <NewElementBtn />

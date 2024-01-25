@@ -1,13 +1,14 @@
-import { PriceValue } from "@/Forms/CotizacionForm/CotizacionForm";
+import { PriceValue } from "@/Types/ProjectData";
 
 const filtracion: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id:'',
     flow: 5 + index,
     unit: "m3/d",
     price: 13000 + index * 1000,
     currency: "USD",
+    // system:''
   };
 
   filtracion.push(newElement);
@@ -16,11 +17,13 @@ for (let index = 0; index < 20; index++) {
 const suavisador: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: '',
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 1000,
     currency: "USD",
+    // system:''
+
   };
 
   suavisador.push(newElement);
@@ -29,11 +32,13 @@ for (let index = 0; index < 20; index++) {
 const osmosis: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: '',
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 1000,
     currency: "USD",
+    // system:''
+
   };
   osmosis.push(newElement);
 }
@@ -41,11 +46,13 @@ for (let index = 0; index < 20; index++) {
 const pretratamiento: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: '',
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 1000,
     currency: "USD",
+    // system:''
+
   };
   pretratamiento.push(newElement);
 }
@@ -53,11 +60,13 @@ for (let index = 0; index < 20; index++) {
 const lodosActivados: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: '',
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 1000,
     currency: "USD",
+    // system:''
+
   };
   lodosActivados.push(newElement);
 }
@@ -65,7 +74,7 @@ for (let index = 0; index < 20; index++) {
 const bioFiltracion: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: index,
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 1150,
@@ -77,7 +86,7 @@ for (let index = 0; index < 20; index++) {
 const mbbr: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: index,
     flow: 5 + index,
     unit: "m3/d",
     price: 8000 + index * 900,
@@ -89,7 +98,7 @@ for (let index = 0; index < 20; index++) {
 const osmosisReuso: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: index,
     flow: 5 + index,
     unit: "m3/d",
     price: 1200 + index * 800,
@@ -101,7 +110,7 @@ for (let index = 0; index < 20; index++) {
 const ultrafiltracion: PriceValue[] = [];
 for (let index = 0; index < 20; index++) {
   const newElement = {
-    id: index,
+    // id: index,
     flow: 5 + index,
     unit: "m3/d",
     price: 1000 + index * 1000,

@@ -2,21 +2,21 @@
 import React, { useEffect } from 'react'
 import { useUserStore } from '@/store/userStore'
 import { useRouter } from "next/navigation";
-
+import './LogOutBtn.scss'
 
 
 export default function LogOutBtn() {
   const router = useRouter();
 
   const {setIsAuth, setSignout,isAuth}=useUserStore()
-  console.log('not auth',isAuth)
+  // console.log('not auth',isAuth)
 
-  useEffect(()=>{
-    if(!isAuth){
-      console.log('not auth',isAuth)
-      // router.replace('/login')
-    }
-  },[isAuth])
+  // useEffect(()=>{
+  //   if(!isAuth){
+  //     console.log('not auth',isAuth)
+  //     // router.replace('/login')
+  //   }
+  // },[isAuth])
 
   const handleClick=()=>{
     setIsAuth(false)
@@ -24,6 +24,6 @@ export default function LogOutBtn() {
     router.push("/login");
   }
   return (
-    <button onClick={handleClick}>Cerrar Sesion</button>
+    <button className='logout' onClick={handleClick}>Cerrar Sesion</button>
   )
 }

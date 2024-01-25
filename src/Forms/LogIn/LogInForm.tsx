@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { UserType } from "@/store/userStore";
 import { useUserStore } from "@/store/userStore";
+import { signIn } from "next-auth/react";
 
 export type LogInForm = {
   username: string;
@@ -49,27 +50,45 @@ export default function LogInForm() {
   const { setLogin, setIsAuth,isAuth } = useUserStore();
 
 
-  useEffect(()=>{
-    if(isAuth){
-      router.push("/");
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(isAuth){
+  //     router.push("/");
+  //   }
+  // },[])
 
-  const leSubmit = handleSubmit((data: any) => {
+  const leSubmit =  handleSubmit(async (data: any) => {
     const username = data.username;
     const password = data.password;
     // console.log(username, password);
 
-    if (
-      users.find((user) => user.username === username) &&
-      users.find((user) => user.password === password)
-    ) {
-      const loginUser = users.find((user) => user.username === username)
-      console.log(loginUser)
-      setLogin(loginUser as UserType);
-      setIsAuth(true)
-      router.push("/");
+    // if (
+    //   users.find((user) => user.username === username) &&
+    //   users.find((user) => user.password === password)
+    // ) {
+    //   const loginUser = users.find((user) => user.username === username)
+    //   console.log(loginUser)
+    //   setLogin(loginUser as UserType);
+    //   setIsAuth(true)
+    //   router.push("/");
+    // }
 
+
+    try {
+      const res = await signIn("credentials", {
+        identifier: formData.username,
+        password: formData.password,
+        redirect: false,
+      });
+      // console.log(res)
+
+      if ((res as any).ok) {
+
+
+          router.push("/perfil");
+        }
+    } catch (error) {
+      console.error("Error during authentication:", error);
+      // Puedes mostrar un mensaje de error al usuario aquí
     }
 
   });

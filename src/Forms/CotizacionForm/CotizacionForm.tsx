@@ -5,16 +5,12 @@ import { useForm } from "react-hook-form";
 import "./CotizacionForm.scss";
 import InputFieldUnit from "@/components/InputFieldUnit/InputFieldUnit";
 import { priceList} from "@/mocks/waterPrices";
+import { PriceValue } from "@/Types/ProjectData";
+import {Cotizacion, useCotizacionStore}from '@/store/cotizacionStore'
+import { IDFromName } from "@/utils/ID_Generator";
 
-
-export type PriceValue={
-  id: number|string,
-    flow: number,
-    unit: string,
-    price: number,
-    currency: string
-}
 export default function CotizacionForm(props: any) {
+  const {addCotizacion}= useCotizacionStore()
   const { modal } = props;
 
   const { register, handleSubmit } = useForm();
@@ -33,6 +29,7 @@ export default function CotizacionForm(props: any) {
     const reusoSystems = ['osmosisReuso','ultrafiltracion']
 
     const projectData ={
+      id:IDFromName(data.name),
       name:data.name,
       location:data.location,
       date:data.date
@@ -41,7 +38,12 @@ export default function CotizacionForm(props: any) {
     const waterCotizacion = waterSystems.map((system)=>{
       if(data[system]){
         const priceData = setPrice(data[system], priceList[system])
-        return priceData
+        const systemData:PriceValue = {
+          id:system,
+          system:system,
+          ...priceData
+        }
+        return systemData
       }
     }).filter((element)=> element !== undefined)
 
@@ -50,7 +52,12 @@ export default function CotizacionForm(props: any) {
     const wasteWaterCotizacion = wasteWaterSystems.map((system)=>{
       if(data[system]){
         const priceData = setPrice(data[system], priceList[system])
-        return priceData
+        const systemData = {
+          id:data.name,
+          system:system,
+          ...priceData
+        }
+        return systemData
       }
     }).filter((element)=> element !== undefined)
 
@@ -59,11 +66,17 @@ export default function CotizacionForm(props: any) {
     const reusoCotizacion = reusoSystems.map((system)=>{
       if(data[system]){
         const priceData = setPrice(data[system], priceList[system])
-        return priceData
+        const systemData = {
+          id:data.name,
+
+          system:system,
+          ...priceData
+        }
+        return systemData
       }
     }).filter((element)=> element !== undefined)
 
-    return {projectData,waterCotizacion, wasteWaterCotizacion, reusoCotizacion}
+    return{projectData,waterCotizacion, wasteWaterCotizacion, reusoCotizacion}
 
   }
 
@@ -75,11 +88,12 @@ export default function CotizacionForm(props: any) {
     // console.log(priceList);
 
 
-    const cotizacionData = setCotizacion(data)
+    const cotizacionData:any = setCotizacion(data)
+    addCotizacion(cotizacionData)
     console.log(cotizacionData)
 
 
-    // modal.setViewForm(false);
+    modal.setViewForm(false);
   });
 
   const handleNext = () => {};

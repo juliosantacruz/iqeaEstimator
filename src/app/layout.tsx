@@ -4,6 +4,7 @@ import "./globals.scss";
 import Navbar from "@/Layout/Navbar/Navbar";
 import AsideMenu from "@/Layout/AsideMenu/AsideMenu";
 import Footer from "@/Layout/Footer/Footer";
+import Providers from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Providers>
         <Navbar />
         {/* <AsideMenu /> */}
         {children}
         {/* <Footer /> */}
+        </Providers>
       </body>
     </html>
   );
