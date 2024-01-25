@@ -1,4 +1,4 @@
-import './Home.scss'
+import './LogIn.scss'
 import Image from "next/image";
 import bgImage from "@/assets/contactoImg.jpg";
 import logoImage from "@/assets/iqea_logo.png";
