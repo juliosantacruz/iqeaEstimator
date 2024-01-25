@@ -1,22 +1,33 @@
 import React from "react";
 import "./CardCotizacionElement.scss";
-import { Cotizacion } from "@/store/cotizacionStore";
+import { Cotizacion, useCotizacionStore } from "@/store/cotizacionStore";
+import { useRouter } from "next/navigation";
+
+type CardProps = {
+  data: Cotizacion;
+};
 
 
-type CardProps={
-  data:Cotizacion
-}
-
- const setBackground=(element:any)=>{
-                  if(element.system==='Water') return 'rgb(160, 0, 147)'
-                  if(element.system==='WasteWater') return 'rgb(83, 0, 160)'
-                  if(element.system==='Other') return 'rgb(48, 0, 160)'
-
-                }
 
 export default function CardCotizacionElement({ data }: CardProps) {
-  const { projectData, waterCotizacion, wasteWaterCotizacion, reusoCotizacion } = data;
+  const router = useRouter();
 
+  const {deleteCotizacion}= useCotizacionStore()
+  const {
+    projectData,
+    waterCotizacion,
+    wasteWaterCotizacion,
+    reusoCotizacion,
+  } = data;
+
+
+  const handleDelete=()=>{
+    deleteCotizacion(projectData?.id as string)
+  }
+
+  const handleDetalle=(id:string)=>{
+    router.push(`detalle/${id}`)
+  }
   return (
     <article className="listElement">
       <div className="listContent">
@@ -28,22 +39,43 @@ export default function CardCotizacionElement({ data }: CardProps) {
           <ul>
             {waterCotizacion &&
               waterCotizacion.map((element) => {
-                return <li key={element.id} style={{backgroundColor:'rgb(160, 0, 147)'}}>{element.system}</li>;
+                return (
+                  <li
+                    key={element.id}
+                    style={{ backgroundColor: "rgb(160, 0, 147)" }}
+                  >
+                    {element.system}
+                  </li>
+                );
               })}
             {wasteWaterCotizacion &&
               wasteWaterCotizacion.map((element) => {
-                return <li key={element.id} style={{backgroundColor:'rgb(83, 0, 160)'}}>{element.system}</li>;
+                return (
+                  <li
+                    key={element.id}
+                    style={{ backgroundColor: "rgb(83, 0, 160)" }}
+                  >
+                    {element.system}
+                  </li>
+                );
               })}
             {reusoCotizacion &&
               reusoCotizacion.map((element) => {
-                return <li key={element.id} style={{backgroundColor:'rgb(48, 0, 160)'}}>{element.system}</li>;
+                return (
+                  <li
+                    key={element.id}
+                    style={{ backgroundColor: "rgb(48, 0, 160)" }}
+                  >
+                    {element.system}
+                  </li>
+                );
               })}
           </ul>
         </div>
       </div>
       <div className="listButton">
-        <button className="delete">Eliminar</button>
-        <button className="details">Ver Detalle</button>
+        <button className="delete" onClick={handleDelete}>Eliminar</button>
+        <button className="details" onClick={()=>handleDetalle(projectData?.id as string)}>Ver Detalle</button>
       </div>
     </article>
   );

@@ -22,7 +22,7 @@ export default function CotizacionForm(props: any) {
 
     return(priceValue)
   }
-
+console.log(priceList)
   const setCotizacion = (data:any) =>{
     const waterSystems =[ 'filtracion', 'suavisador','osmosis']
     const wasteWaterSystems =['pretratamiento', 'lodosActivados','bioFiltracion','mbbr']
@@ -53,7 +53,7 @@ export default function CotizacionForm(props: any) {
       if(data[system]){
         const priceData = setPrice(data[system], priceList[system])
         const systemData = {
-          id:data.name,
+          id:system,
           system:system,
           ...priceData
         }
@@ -67,7 +67,7 @@ export default function CotizacionForm(props: any) {
       if(data[system]){
         const priceData = setPrice(data[system], priceList[system])
         const systemData = {
-          id:data.name,
+          id:system,
 
           system:system,
           ...priceData

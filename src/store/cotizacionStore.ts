@@ -16,7 +16,7 @@ export interface Cotizacion {
 export interface CotizacionStore {
   cotizaciones:Cotizacion[],
   addCotizacion:(cotizacion:Cotizacion)=>void,
-  deleteCotizacion:(cotizacion:Cotizacion)=>void,
+  deleteCotizacion:(id:string)=>void,
 }
 
 
@@ -27,7 +27,11 @@ export const useCotizacionStore = create(
       addCotizacion:(cotizacion:Cotizacion)=> set((state)=>({
         cotizaciones:[...state.cotizaciones, cotizacion]
       })),
-      deleteCotizacion:()=>{}
+      deleteCotizacion:(id: string)=>{
+        set((state) => ({
+          cotizaciones: state.cotizaciones.filter((element) => element.projectData?.id !== id),
+        }));
+      }
     }),
     {
       name: "cotizacion-estimator-storage",
