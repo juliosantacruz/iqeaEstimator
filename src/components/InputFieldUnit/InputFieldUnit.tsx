@@ -30,7 +30,7 @@ export default function InputFieldUnit({
 
   const handleChange =(event:any)=>{
     event.preventDefault()
-    console.log(hasValue)
+    // console.log(hasValue)
     setHasValue(true)
   }
 
@@ -49,7 +49,7 @@ export default function InputFieldUnit({
         className="input"
         onChange={(event)=>handleChange(event)}
         {...register(name, {
-          validate:(value:any)=>{
+          setValueAs:(value:any)=>{
             if(value){
               setHasValue(true)
             }else{

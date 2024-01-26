@@ -23,9 +23,7 @@ export default function InputField({
   inputChange,
   register,
 }: InputProps) {
-
-  const [hasValue, setHasValue]= useState(false)
-
+  const [hasValue, setHasValue] = useState(false);
 
   return (
     <div className="InputField">
@@ -41,13 +39,14 @@ export default function InputField({
         className="input"
         required={required}
         {...register(name, {
-          validate:(value:any)=>{
-            if(value){
-              setHasValue(true)
-            }else{
-              setHasValue(false)
+          setValueAs: (value: any) => {
+            if (value) {
+              setHasValue(true);
+            } else {
+              setHasValue(false);
             }
-          }
+          },
+          required: true,
         })}
       />
     </div>

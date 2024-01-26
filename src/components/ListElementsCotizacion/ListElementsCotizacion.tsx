@@ -6,7 +6,7 @@ import CardCotizacionElement from '../CardCotizacionElement/CardCotizacionElemen
 export default function ListElementsCotizacion() {
   const {cotizaciones} = useCotizacionStore()
 
-  console.log(cotizaciones)
+  // console.log(cotizaciones)
   return (
     <>
     {
