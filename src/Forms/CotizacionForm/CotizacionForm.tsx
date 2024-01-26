@@ -95,11 +95,6 @@ export default function CotizacionForm(props: any) {
   };
 
   const leSubmit = handleSubmit((data: any) => {
-    // console.log(setPrice(data.filtracion, filtracionPrice));
-    // const price = setPrice(data.filtracion, filtracionPrice)
-    // const cotizacion = data.filtracion * (price as PriceValue).price
-    // console.log(priceList);
-
     const cotizacionData: any = setCotizacion(data);
     addCotizacion(cotizacionData);
     console.log(cotizacionData);

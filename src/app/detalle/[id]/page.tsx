@@ -10,7 +10,7 @@ export default function page({ params }: { params: { id: string } }) {
   return (
     <main>
       <div className="title">
-        <h1>Detalle de Cotizacion</h1>
+        <h1>Estimacion de Costo</h1>
       </div>
 
       <Cotizacion id={params.id}/>

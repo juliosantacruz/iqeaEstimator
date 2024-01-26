@@ -49,7 +49,7 @@ export default function Cotizacion({ id }: { id: string }) {
         <div className="HeaderLogo">
           <img src={iqeaLogo.src} alt="logo" />
         </div>
-        <div className="HeaderInfo">
+        {/* <div className="HeaderInfo">
           <p>NORMA ALICIA MURILLO SOLIS</p>
           <p>RFC MUSN511021DU4</p>
           <p>
@@ -59,9 +59,9 @@ export default function Cotizacion({ id }: { id: string }) {
           <p>Tijuana, Baja California, México CP: 22504</p>
           <p>Lada 664 Tel(s) 210-1017</p>
           <p>iqea.facturacion@gmail.com</p>
-        </div>
+        </div> */}
         <div className="HeaderCotizacion">
-          <h3>Cotizacion</h3>
+          <h3>Estimacion de Costo</h3>
           <p>Folio: {id}</p>
           <p>Emitida</p>
           <p>Febrero 12, 2024</p>

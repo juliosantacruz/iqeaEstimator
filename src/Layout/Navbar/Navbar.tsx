@@ -22,7 +22,7 @@ export default function Navbar() {
           {/* <a href={!isDev?'/':'https://iqea-page.vercel.app/'}>
             <li>IQEA</li>
             </a> */}
-            <li><LogOutBtn/></li>
+            {/* <li><LogOutBtn/></li> */}
             <li>
               <div className="dev-logo">
                 <img src={UserImg.src} alt="logoDev" />

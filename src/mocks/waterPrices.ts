@@ -1,7 +1,7 @@
 import { PriceValue } from "@/Types/ProjectData";
 
 const filtracion: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id:'',
     flow: 5 + index,
@@ -15,7 +15,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const suavisador: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: '',
     flow: 5 + index,
@@ -30,7 +30,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const osmosis: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: '',
     flow: 5 + index,
@@ -44,7 +44,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const pretratamiento: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: '',
     flow: 5 + index,
@@ -58,7 +58,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const lodosActivados: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: '',
     flow: 5 + index,
@@ -72,7 +72,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const bioFiltracion: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: index,
     flow: 5 + index,
@@ -84,7 +84,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const mbbr: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: index,
     flow: 5 + index,
@@ -96,7 +96,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const osmosisReuso: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: index,
     flow: 5 + index,
@@ -108,7 +108,7 @@ for (let index = 0; index < 20; index++) {
 }
 
 const ultrafiltracion: PriceValue[] = [];
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 50; index++) {
   const newElement = {
     // id: index,
     flow: 5 + index,
