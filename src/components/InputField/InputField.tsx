@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import "./InputField.scss";
 import { useForm } from "react-hook-form";
 
@@ -37,10 +37,9 @@ export default function InputField({
         id={`${name}-input`}
         type={type}
         className="input"
-        required={required}
         {...register(name, {
-          setValueAs: (value: any) => {
-            if (value) {
+          onChange: (e: React.SyntheticEvent) => {
+            if ((e.target  as HTMLInputElement).value) {
               setHasValue(true);
             } else {
               setHasValue(false);

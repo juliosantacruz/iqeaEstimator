@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import "./InputFieldUnit.scss";
 
 type InputProps = {
@@ -8,7 +8,7 @@ type InputProps = {
   type: string;
   isRequired?: boolean;
   value?: string | number;
-  dirtyFields?:any
+  dirtyFields?: any;
   register: any;
 };
 
@@ -24,16 +24,13 @@ export default function InputFieldUnit({
   dirtyFields,
   register,
 }: InputProps) {
+  const [hasValue, setHasValue] = useState(false);
 
-  const [hasValue, setHasValue]= useState(false)
-
-
-  const handleChange =(event:any)=>{
-    event.preventDefault()
+  const handleChange = (event: any) => {
+    event.preventDefault();
     // console.log(hasValue)
-    setHasValue(true)
-  }
-
+    setHasValue(true);
+  };
 
   return (
     <div className="InputFieldUnit">
@@ -47,15 +44,14 @@ export default function InputFieldUnit({
         id={`${name}-input`}
         type={type}
         className="input"
-        onChange={(event)=>handleChange(event)}
         {...register(name, {
-          setValueAs:(value:any)=>{
-            if(value){
-              setHasValue(true)
-            }else{
-              setHasValue(false)
+          onChange: (e: React.SyntheticEvent) => {
+            if ((e.target as HTMLInputElement).value) {
+              setHasValue(true);
+            } else {
+              setHasValue(false);
             }
-          }
+          },
         })}
       />
       <select {...register(`${name}-unit`)}>
